@@ -2,7 +2,7 @@
  Recreation of [Halo Infinite Settings Editor](https://github.com/aetopia/halo-infinite-settings-editor) but in the .NET Framework.
 
 # Usage
-![image](https://github.com/Aetopia/Halo-Infinite-Settings-Editor-NET/assets/41850963/dd875e3b-79a2-4998-9635-2fe844f55261)
+![image](https://github.com/Aetopia/Halo-Infinite-Settings-Editor-NET/assets/41850963/a815aed7-7dec-4ab6-bfdf-dfcb1fcd0062)
 
 |Action|Operation|
 |-|-|
