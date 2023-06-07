@@ -74,7 +74,7 @@ public class Form : System.Windows.Forms.Form
         MenuStrip menuStrip = new MenuStrip();
         menuStrip.Dock = DockStyle.Top;
 
-        ToolStripButton saveButton = new ToolStripButton("💾 Save");
+        ToolStripButton saveButton = new ToolStripButton("Save");
         saveButton.Click += (sender, e) =>
         {
             Dictionary<string, string> settings = new Dictionary<string, string>();
@@ -83,7 +83,7 @@ public class Form : System.Windows.Forms.Form
             specControlSettings.SetSettings(settings);
         };
 
-        ToolStripButton refreshButton = new ToolStripButton("↻ Refresh");
+        ToolStripButton refreshButton = new ToolStripButton("Refresh");
         refreshButton.Click += (sender, e) =>
         {
             try { dataGridView.Rows.Clear(); }
