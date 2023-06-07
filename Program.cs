@@ -133,7 +133,7 @@ public class Form : System.Windows.Forms.Form
 
         this.Load += (sender, e) =>
         {
-            this.Resize += (sender, e) => { keysComboBox.Size = new Size(menuStrip.DisplayRectangle.Width - (saveButton.Size.Width + refreshButton.Size.Width + 5), -1); };
+            this.Resize += (sender, e) => { keysComboBox.Size = new Size(menuStrip.DisplayRectangle.Width - (saveButton.Size.Width + refreshButton.Size.Width + 7), -1); };
             this.OnResize(null);
             refreshButton.PerformClick();
         };
