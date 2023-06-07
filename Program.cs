@@ -56,7 +56,7 @@ public class Form : System.Windows.Forms.Form
         ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
         AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
         AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells,
-        SelectionMode = DataGridViewSelectionMode.FullRowSelect,
+        SelectionMode = DataGridViewSelectionMode.CellSelect,
         ColumnHeadersVisible = false,
         AllowUserToAddRows = false,
         Dock = DockStyle.Fill
@@ -86,24 +86,25 @@ public class Form : System.Windows.Forms.Form
         ToolStripButton refreshButton = new ToolStripButton("Refresh");
         refreshButton.Click += (sender, e) =>
         {
-            try { dataGridView.Rows.Clear(); }
-            catch (ArgumentOutOfRangeException) { }
-            keysComboBox.Items.Clear();
+            this.dataGridView.Rows.Clear();
+            this.keysComboBox.Items.Clear();
             foreach (KeyValuePair<string, string> keyValuePair in specControlSettings.GetSettings())
             {
-                keysComboBox.Items.Add(keyValuePair.Key);
-                dataGridView.Rows.Add(keyValuePair.Key, keyValuePair.Value);
+                this.keysComboBox.Items.Add(keyValuePair.Key);
+                this.dataGridView.Rows.Add(keyValuePair.Key, keyValuePair.Value);
             }
-            keysComboBox.Text = keysComboBox.Items[0].ToString();
-            dataGridView.Select();
+            this.keysComboBox.Text = this.keysComboBox.Items[0].ToString();
+            this.dataGridView.Select();
         };
 
-        keysComboBox.SelectedIndexChanged += (sender, e) =>
+        this.keysComboBox.TextChanged += (sender, e) => this.keysComboBox.DroppedDown = false;
+        this.keysComboBox.DropDownClosed += (sender, e) => this.dataGridView.Focus();
+        this.keysComboBox.LostFocus += (sender, e) => this.keysComboBox.Text = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
+        this.keysComboBox.SelectedIndexChanged += (sender, e) =>
         {
-            if (!dataGridView.Focused)
+            if (!this.dataGridView.Focused)
                 this.dataGridView.CurrentCell = this.dataGridView.Rows[keysComboBox.SelectedIndex].Cells[1];
         };
-        this.keysComboBox.LostFocus += (sender, e) => keysComboBox.Text = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
 
         menuStrip.Items.Add(saveButton);
         menuStrip.Items.Add(refreshButton);
@@ -127,8 +128,10 @@ public class Form : System.Windows.Forms.Form
         dataGridView.BorderStyle = BorderStyle.None;
         dataGridView.SelectionChanged += (sender, e) =>
         {
+            if (this.dataGridView.CurrentCell.ColumnIndex == 0)
+                this.dataGridView.CurrentCell = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex].Cells[1];
             if (!keysComboBox.Focused)
-                keysComboBox.Text = dataGridView.Rows[dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
+                this.keysComboBox.Text = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
         };
 
         this.Load += (sender, e) =>
