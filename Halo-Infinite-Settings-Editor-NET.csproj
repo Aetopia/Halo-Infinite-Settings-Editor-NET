@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+<PropertyGroup>
+<OutputType>WinExe</OutputType>
+<TargetFramework>net481</TargetFramework>
+<UseWindowsForms>true</UseWindowsForms>
+<ImplicitUsings>disable</ImplicitUsings>
+<Nullable>disable</Nullable>
+<LangVersion>latest</LangVersion>
+<AssemblyName>Halo Infinite Settings Editor .NET</AssemblyName>
+<Copyright>https://www.github.com/Aetopia</Copyright>
+</PropertyGroup>
+
+<ItemGroup>
+  <Reference Include="System.Web.Extensions"/>
+</ItemGroup>
+</Project>
