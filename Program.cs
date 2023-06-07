@@ -77,6 +77,7 @@ public class Form : System.Windows.Forms.Form
         ToolStripButton saveButton = new ToolStripButton("Save");
         saveButton.Click += (sender, e) =>
         {
+            this.dataGridView.EndEdit();
             Dictionary<string, string> settings = new Dictionary<string, string>();
             for (int i = 0; i < dataGridView.RowCount; i++)
                 settings[dataGridView.Rows[i].Cells[0].Value.ToString()] = dataGridView.Rows[i].Cells[1].Value.ToString();
