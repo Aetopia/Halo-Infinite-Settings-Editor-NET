@@ -99,12 +99,14 @@ public class Form : System.Windows.Forms.Form
         };
 
         this.keysComboBox.TextChanged += (sender, e) => this.keysComboBox.DroppedDown = false;
-        this.keysComboBox.DropDownClosed += (sender, e) => this.dataGridView.Focus();
         this.keysComboBox.LostFocus += (sender, e) => this.keysComboBox.Text = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
         this.keysComboBox.SelectedIndexChanged += (sender, e) =>
         {
             if (!this.dataGridView.Focused)
+            {
                 this.dataGridView.CurrentCell = this.dataGridView.Rows[keysComboBox.SelectedIndex].Cells[1];
+                this.dataGridView.Select();
+            }
         };
 
         menuStrip.Items.Add(saveButton);
