@@ -98,10 +98,13 @@ public class Form : System.Windows.Forms.Form
             this.dataGridView.Select();
         };
 
-        this.keysComboBox.TextChanged += (sender, e) => this.keysComboBox.DroppedDown = false;
+        this.keysComboBox.KeyPress += (sender, e) => this.keysComboBox.DroppedDown = false;
         this.keysComboBox.LostFocus += (sender, e) => this.keysComboBox.Text = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
+
         this.keysComboBox.SelectedIndexChanged += (sender, e) =>
         {
+            if (!this.keysComboBox.Focused)
+                this.keysComboBox.Text = this.dataGridView.Rows[this.dataGridView.CurrentCell.RowIndex].Cells[0].Value.ToString();
             if (!this.dataGridView.Focused)
             {
                 this.dataGridView.CurrentCell = this.dataGridView.Rows[keysComboBox.SelectedIndex].Cells[1];
