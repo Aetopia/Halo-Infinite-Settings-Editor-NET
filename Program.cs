@@ -108,10 +108,7 @@ public class Form : System.Windows.Forms.Form
         this.keysComboBox.SelectedIndexChanged += (sender, e) =>
         {
             if (!this.dataGridView.Focused)
-            {
                 this.dataGridView.CurrentCell = this.dataGridView.Rows[keysComboBox.SelectedIndex].Cells[1];
-                this.dataGridView.Select();
-            }
         };
 
         menuStrip.Items.Add(saveButton);
