@@ -72,6 +72,7 @@ public class Form : System.Windows.Forms.Form
         {
             comboBox.Items.Clear();
             dataGridView.Rows.Clear();
+            specControlSettings.Read();
             foreach (KeyValuePair<string, Dictionary<string, object>> keyValuePair in specControlSettings.jsonObject)
             {
                 comboBox.Items.Add(keyValuePair.Key);

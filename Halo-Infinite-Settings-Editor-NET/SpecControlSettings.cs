@@ -20,8 +20,8 @@ public class SpecControlSettings
             this.path = pathSteam;
         else if (File.Exists(pathUwp))
             this.path = pathUwp;
-        this.jsonObject = javaScriptSerializer.Deserialize<Dictionary<string, Dictionary<string, object>>>(File.ReadAllText(this.path));
     }
+    public void Read() { this.jsonObject = javaScriptSerializer.Deserialize<Dictionary<string, Dictionary<string, object>>>(File.ReadAllText(this.path)); }
 
-    public void Write() { File.WriteAllText("test.json", javaScriptSerializer.Serialize(this.jsonObject)); }
+    public void Write() { File.WriteAllText(this.path, javaScriptSerializer.Serialize(this.jsonObject)); }
 }
