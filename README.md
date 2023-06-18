@@ -13,10 +13,8 @@
 
 # Build
 1. Download and install the .NET SDK and .NET Framework 4.8.1 Developer Pack from:<br>https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
-2. Open a Command Prompt or PowerShell window where the `.csproj` file is located.
-3. Run the following command:
+2. Run the following command:
 
     ```cmd
-    dotnet.exe build --configuration Release
+    dotnet build Halo-Infinite-Settings-Editor-NET\Halo-Infinite-Settings-Editor-NET.csproj --configuration Release
     ```
-4. The output should be generated in `"bin\Release\net481\Halo Infinite Settings Editor .NET.exe"`.
