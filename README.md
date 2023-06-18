@@ -1,5 +1,5 @@
 # Halo Infinite Settings Editor .NET
- Recreation of [Halo Infinite Settings Editor](https://github.com/aetopia/halo-infinite-settings-editor) but in the .NET Framework.
+ Recreation of [Halo Infinite Settings Editor](https://github.com/aetopia/halo-infinite-settings-editor) but in the **`.NET Framework`**.
 
 # Usage
 ![image](https://github.com/Aetopia/Halo-Infinite-Settings-Editor-NET/assets/41850963/2a4d1f7b-cf44-4ee2-9e85-aafb6769646a)
