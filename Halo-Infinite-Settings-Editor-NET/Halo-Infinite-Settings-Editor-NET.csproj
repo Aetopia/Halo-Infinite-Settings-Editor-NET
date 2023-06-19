@@ -7,6 +7,9 @@
 <LangVersion>latest</LangVersion>
 <AssemblyName>Halo Infinite Settings Editor .NET</AssemblyName>
 <Copyright>Aetopia</Copyright>
+<Version>1.1.0.0</Version>
+<AssemblyVersion>1.1.0.0</AssemblyVersion>
+<FileVersion>1.1.0.0</FileVersion>
 </PropertyGroup>
 
 <ItemGroup>
