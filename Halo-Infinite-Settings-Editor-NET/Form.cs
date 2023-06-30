@@ -12,6 +12,7 @@ public class Form : System.Windows.Forms.Form
         this.Font = SystemFonts.MessageBoxFont;
         this.MinimumSize = new Size(800, 600);
         this.CenterToScreen();
+        bool specControlMPSettings = false;
 
         TableLayoutPanel tableLayoutPanel = new TableLayoutPanel() { Dock = DockStyle.Top, AutoSize = true };
         Panel panel = new Panel() { AutoSize = true, Dock = DockStyle.Fill };
@@ -44,7 +45,8 @@ public class Form : System.Windows.Forms.Form
 
         Button
         button1 = new Button() { Text = "Save", Margin = new Padding(0, 1, 0, 0) },
-        button2 = new Button() { Text = "Refresh", Margin = new Padding(0, 1, 0, 0) };
+        button2 = new Button() { Text = "Refresh", Margin = new Padding(0, 1, 0, 0) },
+        button3 = new Button() { Text = "Common", Margin = new Padding(0, 1, 0, 0) };
 
         ComboBox comboBox = new ComboBox()
         {
@@ -72,7 +74,7 @@ public class Form : System.Windows.Forms.Form
         {
             comboBox.Items.Clear();
             dataGridView.Rows.Clear();
-            specControlSettings.Read();
+            specControlSettings.Read(specControlMPSettings);
             foreach (KeyValuePair<string, Dictionary<string, object>> keyValuePair in specControlSettings.jsonObject)
             {
                 comboBox.Items.Add(keyValuePair.Key);
@@ -80,6 +82,12 @@ public class Form : System.Windows.Forms.Form
             }
             comboBox.SelectedIndex = 0;
             dataGridView.Select();
+        };
+        button3.Click += (sender, e) =>
+        {
+            button3.Text = button3.Text == "Common" ? "Multiplayer" : "Common";
+            specControlMPSettings = !specControlMPSettings;
+            button2.PerformClick();
         };
 
         comboBox.KeyPress += (sender, e) => comboBox.DroppedDown = false;
@@ -115,7 +123,8 @@ public class Form : System.Windows.Forms.Form
 
         tableLayoutPanel.Controls.Add(button1, 0, 0);
         tableLayoutPanel.Controls.Add(button2, 1, 0);
-        tableLayoutPanel.Controls.Add(comboBox, 2, 0);
+        tableLayoutPanel.Controls.Add(button3, 2, 0);
+        tableLayoutPanel.Controls.Add(comboBox, 3, 0);
         panel.Controls.Add(dataGridView);
         this.Controls.AddRange(new Control[] { tableLayoutPanel, panel });
     }
