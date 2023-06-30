@@ -2,13 +2,12 @@
  Recreation of [Halo Infinite Settings Editor](https://github.com/aetopia/halo-infinite-settings-editor) but in the **`.NET Framework`**.
 
 # Usage
-![image](https://github.com/Aetopia/Halo-Infinite-Settings-Editor-NET/assets/41850963/2a4d1f7b-cf44-4ee2-9e85-aafb6769646a)
-
 |Action|Operation|
 |-|-|
 |Editing Values|Double click the cell, you want to edit.|
 |Saving Settings|Click the `Save` button to save the edited settings.|
 |Refreshing Settings|You can reset any edited values but to default by clicking the `Refresh` button.|
+|Common/Multiplayer Settings|Hitting the `Common/Multiplayer` button will load common/multiplayer settings. The button text displays the currently loaded settings.|
 |Key Navigation|You may use the dropdown to navigate to a specific key.|
 
 # Build

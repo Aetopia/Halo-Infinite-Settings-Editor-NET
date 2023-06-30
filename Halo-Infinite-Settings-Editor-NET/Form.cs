@@ -68,7 +68,7 @@ public class Form : System.Windows.Forms.Form
                 }
                 catch (FormatException) { }
             }
-            specControlSettings.Write();
+            specControlSettings.Write(specControlMPSettings);
         };
         button2.Click += (sender, e) =>
         {
